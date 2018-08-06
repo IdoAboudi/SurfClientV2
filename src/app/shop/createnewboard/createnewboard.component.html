@@ -1,0 +1,68 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/action_page.php">
+  Name: <input type="text" name="name"><br>
+  Description: <input type="text" name="desc"><br>
+  Price: <input type="text" name="price"><br>
+  Address: <input type="text" name="addr"><br>
+  PictureUrl: <input type="text" name="picurl"><br>
+
+  <input type="submit" value="Submit">
+</form>
+<!--aboudi changes
+</body>
+</html>
+ -!>
+
+-->
+
+
+
+<div class="container">
+  <h1>Add new board</h1>
+
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+    <div class="form-group">
+
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required
+      [(ngModel)]="model.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <input type="text" class="form-control" id="desc"
+      [(ngModel)]="model.description" name="description">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price"
+      [(ngModel)]="model.price" name="price">
+    </div>
+    <div class="form-group">
+      <!--<label for="addr-input">Address</label>-->
+      <!--<input type="search" class="form-control" id="addr-input"-->
+             <!--[(ngModel)]="model.address"-->
+       <!--name="address">-->
+
+      <input ngx-google-places-autocomplete class="form-control" name="address"  type="text" [(ngModel)]="model.address" />
+    </div>
+    <div class="form-group">
+      <label for="picurl">PictureUrl</label>
+      <input type="text" class="form-control" id="picurl"
+      [(ngModel)]="model.pictureUrl" name="pictureUrl">
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit($event)">Submit</button>
+
+  </form>
+</div>
+
+

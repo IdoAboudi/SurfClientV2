@@ -1,20 +1,57 @@
+import {NgModule, ViewChild} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { AppComponent }  from './app.component';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundComponent} from './NotFound/notFound.component';
+import {CreateNewBoardComponent} from './shop/createnewboard/createnewboard.component';
+import {HomepageComponent} from './homepage/homepage.component';
+import {ProductService} from './services/products.service';
+import {HttpModule} from '@angular/http';
+import {ManageComponent} from "./manage/manage.component";
+import {ManageModule} from "./manage/manage.module";
+import {UpdateComponent} from "./manage/update/update.component";
+import {ManageProductListComponent} from "./manage/list/manage.product.list.component";
+import {FormsModule} from "@angular/forms";
+import {ShopComponent} from "./shop/shop.component";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
-import { AppComponent } from './app.component';
+const appRoutes: Routes = [
+  {
+    path: '', redirectTo: 'shop', pathMatch: 'full'
+  },{
+    path: 'manage', component: ManageComponent,
+    children: [
+      {
+        path: 'list', component: ManageProductListComponent
+      },
+      {
+        path: 'edit/:id', component: UpdateComponent
+      }
+    ]
+  },
+  {
+    path: 'shop', component: ShopComponent
+  },
+  {
+    path: 'create', component: CreateNewBoardComponent
+  },
+  {
+    path: '**', component: NotFoundComponent
+  }
+];
+
 
 @NgModule({
-  declarations: [
-    AppComponent
+  imports:      [ BrowserModule,
+                  RouterModule.forRoot(appRoutes),
+                  HttpModule,
+                  ManageModule,
+                  FormsModule, GooglePlaceModule
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent],
+  providers: [ProductService],
+  bootstrap:    [ AppComponent ],
 })
-export class AppModule { }
+
+export class AppModule {
+}

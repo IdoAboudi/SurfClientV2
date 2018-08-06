@@ -1,0 +1,17 @@
+<!-- Angular -->
+
+<!-- Bootstrap Declaration in app component -->
+<button class="btn btn-success pull-left" routerLink="/create">New Post</button> <br>
+<div class="raw list-group" *ngFor="let item of products; let i = index">
+  <div class="products col-xs-4 col-lg-4">
+    <div class="thumbnail">
+      <h4>{{item.name}}</h4>
+      <p>{{item.description}}</p>
+      <p class="lead"> {{item.price}}$</p>
+      address : <a class="btn">{{item.address}}</a>
+      <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />{{item.pictureUrl}}
+    </div>
+  </div>
+</div>
+
+
