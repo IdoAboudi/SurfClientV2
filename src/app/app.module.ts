@@ -51,6 +51,7 @@ const appRoutes: Routes = [
   declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent],
   providers: [ProductService],
   bootstrap:    [ AppComponent ],
+  exports: [GooglePlaceModule]
 })
 
 export class AppModule {
