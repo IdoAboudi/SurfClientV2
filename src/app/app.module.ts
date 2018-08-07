@@ -12,7 +12,7 @@ import {ManageModule} from "./manage/manage.module";
 import {UpdateComponent} from "./manage/update/update.component";
 import {ManageProductListComponent} from "./manage/list/manage.product.list.component";
 import {FormsModule} from "@angular/forms";
-import {ShopComponent} from "./shop/shop.component";
+import {SearchFilterPipe, ShopComponent} from './shop/shop.component';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {WeatherComponent} from './weather/weather.component';
 import {WeatherService} from './services/weather.service';
@@ -50,7 +50,9 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent,
+    HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent,
+    SearchFilterPipe],
   providers: [ProductService, WeatherService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
