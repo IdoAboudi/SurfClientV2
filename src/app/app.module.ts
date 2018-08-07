@@ -16,6 +16,7 @@ import {SearchFilterPipe, ShopComponent} from './shop/shop.component';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {WeatherComponent} from './weather/weather.component';
 import {WeatherService} from './services/weather.service';
+import {ViewsPerPageComponent} from './manage/viewsPerPage/viewsPerPage.component';
 
 const appRoutes: Routes = [
   {
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
   ],
   declarations: [ AppComponent, ShopComponent, NotFoundComponent,
     HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent,
-    SearchFilterPipe],
+    SearchFilterPipe, ViewsPerPageComponent],
   providers: [ProductService, WeatherService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]

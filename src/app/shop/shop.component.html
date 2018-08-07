@@ -1,14 +1,14 @@
 <!-- Angular -->
 
 <!-- Bootstrap Declaration in app component -->
-<select [(ngModel)]="searhField">
-  <option *ngFor="let prop of propsList" value= {{prop}}>
+<select [(ngModel)]="selectedFiled">
+  <option *ngFor="let prop of propsList" [value]="prop.valueOf()">
     {{prop}}
   </option>
 </select>
-<input placeholder="" [(ngModel)]="searchValue" (select)="action($event.value)">
+<input placeholder="" [(ngModel)]="selectedValue" (input)="searchByValue()" >
 <button class="btn btn-success pull-left" routerLink="/create">New Post</button> <br>
-<div class="raw list-group" *ngFor="let item of products | searchfilter: searhField : searchValue">
+<div class="raw list-group" *ngFor="let item of filteredProducts">
   <div class="products col-xs-4 col-lg-4">
     <div class="thumbnail">
       <h4>{{item.name}}</h4>

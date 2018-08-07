@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
 })
 
 export class HomepageComponent  {
-  message: string = 'You are in the homepage'
+  views: number;
+
+  constructor(views: number){
+    //TODO: get number of views from db
+    this.views=views+1;
+    //TODO: set number of views to db
+
+    //aboudi ha bulbul
+
+  }
+
+
 }
+

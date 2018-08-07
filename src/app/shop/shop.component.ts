@@ -12,9 +12,10 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
 export class ShopComponent  {
   products: Array<Product>;
+  filteredProducts: Array<Product>;
   propsList: string[]=['name','price','address'];
-  searchValue: string = "";
-  searhField: string = "";
+  selectedValue: string = "";
+  selectedFiled: string = "name";
 
   constructor(private _productService: ProductService){
 
@@ -23,10 +24,20 @@ export class ShopComponent  {
   ngOnInit() {
       this._productService.getAllProducts().subscribe((products) => {
       this.products = products;
+      this.filteredProducts = products;
     });
   }
 
   ngOnDestroy(){
+  }
+
+  searchByValue(){
+    console.log(`searching by ${this.selectedFiled} ${this.selectedValue}`)
+    this.filteredProducts = this.products.filter(x => {
+      if(x[this.selectedFiled]){
+        return x[this.selectedFiled].includes(this.selectedValue)
+      } else return false;
+    });
   }
 
 }
