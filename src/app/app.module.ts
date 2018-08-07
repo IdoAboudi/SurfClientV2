@@ -14,6 +14,8 @@ import {ManageProductListComponent} from "./manage/list/manage.product.list.comp
 import {FormsModule} from "@angular/forms";
 import {ShopComponent} from "./shop/shop.component";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import {WeatherComponent} from './weather/weather.component';
+import {WeatherService} from './services/weather.service';
 
 const appRoutes: Routes = [
   {
@@ -48,8 +50,8 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent],
-  providers: [ProductService],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent],
+  providers: [ProductService, WeatherService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
 })
