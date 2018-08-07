@@ -2,15 +2,16 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" [routerLink] = "['']">Surf Shop </a>
+        <a class="navbar-brand" href="shop" style="margin-left: 10px"></a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav"style="margin-left: 100px">
       <li><a [routerLink] = "['/shop']">Shop</a></li>
       <li><a [routerLink] = "['/manage/list']">Manage</a></li>
+      <li><a [routerLink] = "['/camera']">Camera</a></li>
       <li><a [routerLink] = "['/anything']">Not Found</a></li>
     </ul>
     <div class="align-self-center">
-      <div class="pull-right">
+      <div class="pull-right" style="margin-top: 15px">
         <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/160/facebook/65/water-wave_1f30a.png">
         <div class="pull-right">
          <weather-component class="weather"></weather-component>
@@ -19,7 +20,6 @@
     </div>
   </div>
 </nav>
-
 <div>
   <router-outlet>
 
