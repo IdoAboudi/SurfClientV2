@@ -1,6 +1,5 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { ManageComponent }  from './manage.component';
 import {ProductService} from '../services/products.service';
 import {AppComponent} from "../app.component";
@@ -16,13 +15,11 @@ const manageRoutes: Routes = [
 ]
 
 @NgModule({
-  imports:      [ BrowserModule, RouterModule.forChild(manageRoutes), RouterModule, FormsModule,GooglePlaceModule ],
-  declarations: [ UpdateComponent, ManageProductListComponent ],
+  imports:      [ BrowserModule, RouterModule.forChild(manageRoutes), RouterModule, FormsModule, GooglePlaceModule ],
+  declarations: [ UpdateComponent, ManageProductListComponent],
   providers: [],
   bootstrap:    [ AppComponent ],
-  exports: [
-
-  ]
+  exports: []
 })
 
 export class ManageModule {

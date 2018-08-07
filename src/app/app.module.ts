@@ -17,6 +17,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {WeatherComponent} from './weather/weather.component';
 import {WeatherService} from './services/weather.service';
 import {CameraComponent} from './camera/camera.component';
+import { MapsComponent } from './statistics/map/maps/maps.component';
 
 const appRoutes: Routes = [
   {
@@ -54,7 +55,7 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent],
   providers: [ProductService, WeatherService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
