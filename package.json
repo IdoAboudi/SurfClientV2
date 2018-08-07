@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
     "@types/googlemaps": "^3.30.11",
+    "angular2-google-login": "^1.0.9",
     "core-js": "^2.4.1",
     "ngx-google-places-autocomplete": "^2.0.1",
     "rxjs": "^5.1.0",

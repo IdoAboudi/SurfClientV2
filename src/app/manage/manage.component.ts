@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ProductService} from "../services/products.service";
 import {Product} from "../models/Product";
 import {functions} from '../helpers/functions'
 import {UpdateComponent} from "./update/update.component";
-import {Router} from "@angular/router";
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'inner-component',

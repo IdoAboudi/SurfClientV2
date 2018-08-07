@@ -14,7 +14,9 @@ import {ManageProductListComponent} from "./manage/list/manage.product.list.comp
 import {FormsModule} from "@angular/forms";
 import {ShopComponent} from "./shop/shop.component";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-
+import { Countrydropdownlist1Component } from './countrydropdownlist1/countrydropdownlist1.component';
+import { AuthService, AppGlobals } from 'angular2-google-login';
+import { LoginComponent } from '../login/login/login.component';
 const appRoutes: Routes = [
   {
     path: '', redirectTo: 'shop', pathMatch: 'full'
@@ -48,9 +50,9 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent],
-  providers: [ProductService],
-  bootstrap:    [ AppComponent ],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, Countrydropdownlist1Component, LoginComponent, ],
+  providers: [ProductService,AuthService],
+  bootstrap:    [ AppComponent,Countrydropdownlist1Component  ],
 })
 
 export class AppModule {
