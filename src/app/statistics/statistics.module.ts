@@ -9,10 +9,11 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {MapsComponent} from './map/maps/maps.component';
 import {ProductService} from '../services/products.service';
 import { StatisticsComponent } from './statistics.component';
+import {BarChartPageViewsComponent} from './barChartViews/barChartPageViews.component';
 
 @NgModule({
   imports:      [ CommonModule,BrowserModule, FormsModule, GooglePlaceModule ],
-  declarations: [ MapsComponent, StatisticsComponent ],
+  declarations: [ MapsComponent, StatisticsComponent,BarChartPageViewsComponent ],
   providers: [ProductService],
   bootstrap:    [ AppComponent ],
   exports: []
