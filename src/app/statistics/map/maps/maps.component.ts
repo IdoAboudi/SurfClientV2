@@ -19,18 +19,19 @@ export class MapsComponent implements OnInit {
         var mapProp = {
           center: new google.maps.LatLng(products[0].lat || 0, products[0].lng || 0),
           zoom: 1,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
         };
         var map = new google.maps.Map(document.getElementById("gmap"), mapProp);
         products.forEach(p => {
           if(p.lat && p.lng){
             console.log(`lat ${p.lat} lng ${p.lng}`);
+            let infoWindow = new google.maps.InfoWindow({content: p.address})
             let latlng = new google.maps.LatLng(p.lat,p.lng);
             var newMarker = new google.maps.Marker({
               position: latlng,
               map: map
             });
-            newMarker.set(p.address)
+            newMarker.addListener('click',()=>{infoWindow.open(map,newMarker)});
           }
         })
       }

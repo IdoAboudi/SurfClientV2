@@ -9,13 +9,10 @@ import {ManageProductListComponent} from "./list/manage.product.list.component";
 import {FormsModule} from "@angular/forms";
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 
-const manageRoutes: Routes = [
-  {path: 'list', component: ManageProductListComponent, pathMatch: 'full'},
-  {path : 'edit/:id', component: UpdateComponent}
-]
+
 
 @NgModule({
-  imports:      [ BrowserModule, RouterModule.forChild(manageRoutes), RouterModule, FormsModule, GooglePlaceModule ],
+  imports:      [ BrowserModule, FormsModule, GooglePlaceModule ],
   declarations: [ UpdateComponent, ManageProductListComponent],
   providers: [],
   bootstrap:    [ AppComponent ],

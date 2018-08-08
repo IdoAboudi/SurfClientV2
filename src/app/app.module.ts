@@ -18,6 +18,8 @@ import {WeatherComponent} from './weather/weather.component';
 import {WeatherService} from './services/weather.service';
 import {CameraComponent} from './camera/camera.component';
 import { MapsComponent } from './statistics/map/maps/maps.component';
+import {StatisticsComponent} from './statistics/statistics.component';
+import { ProductsByCountryComponent } from './statistics/products-by-country/products-by-country.component';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +43,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'camera', component: CameraComponent
+  }, {
+    path: 'statistics', component: StatisticsComponent
   },
   {
     path: '**', component: NotFoundComponent
@@ -55,7 +59,7 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent],
   providers: [ProductService, WeatherService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
