@@ -4,11 +4,13 @@ import {Product} from '../models/Product';
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
+import {SocketHandlerService} from '../socket-handler.service';
 
 @Component({
   selector: 'inner-component',
   templateUrl: './shop.component.html',
 })
+
 
 export class ShopComponent  {
   products: Array<Product>;
@@ -16,19 +18,23 @@ export class ShopComponent  {
   propsList: string[]=['name','price','address'];
   selectedValue: string = "";
   selectedFiled: string = "name";
+  contact: string = "Contact"
 
-  constructor(private _productService: ProductService){
+  constructor(private _productService: ProductService,private SocketHandlerService: SocketHandlerService){
 
   }
 
   ngOnInit() {
+
       this._productService.getAllProducts().subscribe((products) => {
       this.products = products;
       this.filteredProducts = products;
+        this.SocketHandlerService.sendEnteredComn("Shop");
     });
   }
 
   ngOnDestroy(){
+
   }
 
   searchByValue(){
@@ -38,6 +44,22 @@ export class ShopComponent  {
         return x[this.selectedFiled].includes(this.selectedValue)
       } else return false;
     });
+  }
+
+  getContact(item: Product) {
+    console.log(`working ${JSON.stringify(item.phone)}`);
+    item.contact=""+item.phone;
+    item.viewed = item.viewed ? item.viewed + 1 : 1
+    this._productService.updateProduct(item).subscribe(response => {
+      if(response.status != 200) {
+        console.error(`Update failed ${response.status}`);
+      }
+      let timer = Observable.timer(10000,1000);
+      timer.subscribe(t=>item.contact = "Press for contact customer");
+    });
+
+
+
   }
 
 }
@@ -53,4 +75,5 @@ export class SearchFilterPipe implements PipeTransform {
     if (!items) return [];
     return items.filter(it => it[field].includes(value))
   }
+
 }

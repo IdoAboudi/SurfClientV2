@@ -59,7 +59,11 @@
       <input type="text" class="form-control" id="picurl"
       [(ngModel)]="model.pictureUrl" name="pictureUrl">
     </div>
-
+    <div class="form-group">
+      <label for="picurl">Phone</label>
+      <input type="text" class="form-control" id="phone"
+             [(ngModel)]="model.phone" name="phone">
+    </div>
     <button type="submit" class="btn btn-success" (click)="onSubmit($event)">Submit</button>
 
   </form>

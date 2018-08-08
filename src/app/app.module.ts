@@ -21,7 +21,8 @@ import { MapsComponent } from './statistics/map/maps/maps.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import { ProductsByCountryComponent } from './statistics/products-by-country/products-by-country.component';
 import {ViewsPerPageComponent} from './manage/viewsPerPage/viewsPerPage.component';
-
+import { WebSocketService } from './web-socket.service';
+import {SocketHandlerService} from './socket-handler.service'
 const appRoutes: Routes = [
   {
     path: '', redirectTo: 'shop', pathMatch: 'full'
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
                   FormsModule, GooglePlaceModule
   ],
   declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent],
-  providers: [ProductService, WeatherService],
+  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
 })

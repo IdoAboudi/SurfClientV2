@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SocketHandlerService} from '../socket-handler.service'
+import {WebSocketService} from '../web-socket.service';
 
 @Component({
   selector: 'inner-component',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
 })
 
 export class CameraComponent  {
+  constructor(private SocketHandlerService: SocketHandlerService){}
 
+  ngOnInit()
+  {
+    this.SocketHandlerService.sendEnteredComn("Camera");
+  }
 }

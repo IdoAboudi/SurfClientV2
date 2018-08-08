@@ -9,4 +9,7 @@ export class Product {
   lat :number;
   lng: number;
   pictureUrl:string;
+  phone:string;
+  viewed:number;
+  contact="Press for contact customer"
 }
