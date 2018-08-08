@@ -4,6 +4,7 @@ import {Product} from "../models/Product";
 import {functions} from '../helpers/functions'
 import {UpdateComponent} from "./update/update.component";
 import {Router} from "@angular/router";
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'inner-component',
@@ -14,12 +15,15 @@ export class ManageComponent  {
   message: string = 'This is the manage component';
   products: Product[] = [];
 
-  constructor(private _productService: ProductService, private _router: Router) {}
+  constructor(private _productService: ProductService, private _router: Router) {
+  }
 
   ngOnInit(){
     this._productService.getAllProducts().subscribe(products => {
       this.products = products;
+
     });
+
   }
 
 

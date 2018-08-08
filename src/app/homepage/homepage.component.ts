@@ -13,8 +13,6 @@ export class HomepageComponent  {
     this.views=views+1;
     //TODO: set number of views to db
 
-    //aboudi ha bulbul
-
   }
 
 
