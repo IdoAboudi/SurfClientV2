@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Product} from '../models/Product';
 import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {AggProduct} from '../models/AggProduct';
 
 
 @Injectable()
@@ -13,10 +14,12 @@ export class ProductService{
   private updateProductUrl = 'http://localhost:8080/api/product/update';
   private deleteProductUrl = 'http://localhost:8080/api/product/delete/:id';
   private insertProductUrl = 'http://localhost:8080/api/product/upload';
+  private allProductsByHandUrl = 'http://localhost:8080/api/byhand';
   // private headers = new Headers();
 
 
   private products: Observable<Array<Product>> = new Observable<Array<Product>>();
+  private productsByHand: Observable<Array<AggProduct>> = new Observable<Array<AggProduct>>();
 
   //this loads the http client into the service automatically
   constructor(private http: Http) {
@@ -28,6 +31,14 @@ export class ProductService{
         .map((res:Response) => res.json());
         //...errors if any
       return this.products;
+  }
+
+  getAllProductsByHand(): Observable<AggProduct[]>{
+    this.productsByHand =  this.http.get(this.allProductsByHandUrl)
+    // ...and calling .json() on the response to return data
+      .map((res:Response) => res.json());
+    //...errors if any
+    return this.productsByHand;
   }
 
   getOneProduct(id: string): Observable<Product>{
