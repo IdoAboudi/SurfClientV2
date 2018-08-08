@@ -21,8 +21,7 @@ export class SocketHandlerService {
   sendMsg(msg) {
     this.messages.next(msg);
   }
-  sendEnteredComn(msg) {
-    this.messages.next(msg);
+  sendViewProduct(product) {
+    this.messages.next(product);
   }
-
 }

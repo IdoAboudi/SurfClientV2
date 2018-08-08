@@ -12,6 +12,6 @@ export class CameraComponent  {
 
   ngOnInit()
   {
-    this.SocketHandlerService.sendEnteredComn("Camera");
+    // this.SocketHandlerService.sendEnteredComn("Camera");
   }
 }

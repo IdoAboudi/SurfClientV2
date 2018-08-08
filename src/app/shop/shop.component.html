@@ -1,11 +1,12 @@
 <!-- Angular -->
 
 <!-- Bootstrap Declaration in app component -->
-<select [(ngModel)]="selectedFiled">
-  <option *ngFor="let prop of propsList" [value]="prop.valueOf()">
-    {{prop}}
-  </option>
-</select>
+  <select [(ngModel)]="selectedFiled">
+    <option *ngFor="let prop of propsList" [value]="prop.valueOf()">
+      {{prop}}
+    </option>
+  </select>
+
 <input placeholder="" [(ngModel)]="selectedValue" (input)="searchByValue()" >
 <button class="btn btn-success pull-left" routerLink="/create">New Post</button> <br>
 <div class="raw list-group" *ngFor="let item of filteredProducts">
@@ -15,6 +16,7 @@
       <p>{{item.description}}</p>
       <p>${{item.price}}</p>
       <p>address : {{item.address}}</p>
+      <p>Hand : {{item.hand}}</p>
       <script>
         item.contact="Press for contact customer"
       </script>

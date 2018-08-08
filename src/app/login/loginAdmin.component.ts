@@ -7,21 +7,23 @@ import {AuthService} from '../services/auth.service';
   templateUrl: './loginAdmin.component.html',
 })
 
-export class LoginAdminComponent{
+export class LoginAdminComponent {
   user: string;
   pass: string;
 
-  constructor(private authService: AuthService, private _router: Router){}
+  constructor(private authService: AuthService, private _router: Router) {
+  }
 
 
-  validUser(){
-console.log(`valid user`);
-    if(this.authService.login(this.user,this.pass)) {
-      console.log(`equals`);
-      this._router.navigate(['manage/list']);
-    }
-    else
-      this._router.navigate(['login']);
+  validUser() {
+    this.authService.login(this.user, this.pass, (res) => {
+      if (res) {
+        this._router.navigate(['manage/list']);
+      } else {
+        window.alert(`Wrong Password ! Try again.`);
+        this._router.navigate(['login']);
+      }
+    })
   }
 }
 

@@ -26,6 +26,9 @@ import {SocketHandlerService} from './socket-handler.service'
 import {CanActivateViaAuthGuard} from './login/CanActivateViaAuthGuard';
 import {AuthService} from './services/auth.service';
 import {LoginAdminComponent} from './login/loginAdmin.component';
+import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'angular-d3-charts';
+import {BarChartPageViewsComponent} from './statistics/barChartViews/barChartPageViews.component';
+
 const appRoutes: Routes = [
   {
     path: '', redirectTo: 'shop', pathMatch: 'full'
@@ -66,8 +69,8 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent,LoginAdminComponent],
-  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService, AuthService, CanActivateViaAuthGuard],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent,LoginAdminComponent, DoughnutChartComponent, PieChartComponent, BarChartComponent],
+  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService, AuthService, CanActivateViaAuthGuard, BarChartPageViewsComponent],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
 })
