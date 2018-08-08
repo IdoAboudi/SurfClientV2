@@ -8,13 +8,15 @@ import {UpdateComponent} from "./update/update.component";
 import {ManageProductListComponent} from "./list/manage.product.list.component";
 import {FormsModule} from "@angular/forms";
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import {CanActivateViaAuthGuard} from '../login/CanActivateViaAuthGuard';
+import {AuthService} from '../services/auth.service';
 
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, GooglePlaceModule ],
   declarations: [ UpdateComponent, ManageProductListComponent],
-  providers: [],
+  providers: [CanActivateViaAuthGuard, AuthService],
   bootstrap:    [ AppComponent ],
   exports: []
 })
