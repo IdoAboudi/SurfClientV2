@@ -15,6 +15,9 @@
       <p>{{item.description}}</p>
       <p>${{item.price}}</p>
       <p>address : {{item.address}}</p>
+      <script>
+        item.contact="Press for contact customer"
+      </script>
       <a (click)="getContact(item)">{{item.contact}}</a>
       <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />{{item.pictureUrl}}
     </div>
