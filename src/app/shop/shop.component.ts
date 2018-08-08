@@ -29,7 +29,7 @@ export class ShopComponent  {
       this._productService.getAllProducts().subscribe((products) => {
       this.products = products;
       this.filteredProducts = products;
-        this.SocketHandlerService.sendEnteredComn("Shop");
+        // this.SocketHandlerService.sendEnteredComn("Shop");
     });
   }
 
@@ -54,6 +54,7 @@ export class ShopComponent  {
       let timer = Observable.timer(0,10000);
       timer.subscribe(t=>item.contact = item.phone);
       item.contact="Press for contact customer"
+    this.SocketHandlerService.sendViewProduct(item);
     this._productService.updateProduct(item).subscribe(response => {
       if(response.status != 200) {
         console.error(`Update failed ${response.status}`);
