@@ -11,7 +11,8 @@ h1 {
 }
 
 .weather{
-  color: aliceblue;
+  color: white;
+  text-shadow: 2px 2px blueviolet;
 }
 
 .glyphicon-star{
@@ -74,3 +75,19 @@ img {
   stroke: steelblue;
 }
 
+.fb-like{
+  margin-top: 15px;
+  margin-left: 140px;
+}
+
+nav{
+  color: red;
+  -webkit-transition: background-color 0.3s ease-out;
+  -moz-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+
+nav:hover {
+  background-color: #333333;
+}
