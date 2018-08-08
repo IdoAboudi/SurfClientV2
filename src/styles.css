@@ -51,3 +51,26 @@ img {
 .checkbox {
   margin-bottom: 30px;
 }
+
+.line {
+  fill: none;
+  stroke: #ffab00;
+  stroke-width: 3;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  fill: #ffab00;
+  stroke: #fff;
+}
+
+.dot:hover{
+  fill: #fff;
+  stroke: steelblue;
+}
+
