@@ -50,12 +50,14 @@ export class ShopComponent  {
     console.log(`working ${JSON.stringify(item.phone)}`);
     item.contact=""+item.phone;
     item.viewed = item.viewed ? item.viewed + 1 : 1
+
+      let timer = Observable.timer(0,10000);
+      timer.subscribe(t=>item.contact = item.phone);
+      item.contact="Press for contact customer"
     this._productService.updateProduct(item).subscribe(response => {
       if(response.status != 200) {
         console.error(`Update failed ${response.status}`);
       }
-      let timer = Observable.timer(10000,1000);
-      timer.subscribe(t=>item.contact = "Press for contact customer");
     });
 
 
