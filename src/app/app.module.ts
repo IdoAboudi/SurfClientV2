@@ -69,8 +69,8 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent,LoginAdminComponent, DoughnutChartComponent, PieChartComponent, BarChartComponent],
-  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService, AuthService, CanActivateViaAuthGuard, BarChartPageViewsComponent],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent,LoginAdminComponent, DoughnutChartComponent, PieChartComponent, BarChartComponent, BarChartPageViewsComponent],
+  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService, AuthService, CanActivateViaAuthGuard],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
 })
