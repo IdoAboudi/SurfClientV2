@@ -12,9 +12,20 @@
     </div>
 
     <div class="form-group">
+      <label>Price</label>
+      <input *ngIf='product' [(ngModel)]="product.price" name="price" type="text" class="form-control" id="price">
+    </div>
+
+    <div class="form-group">
+      <label>Hand</label>
+      <input *ngIf='product' [(ngModel)]="product.hand" name="hand" type="text" class="form-control" id="hand">
+    </div>
+
+    <div class="form-group">
       <label>Address</label>
       <input *ngIf="product" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"  class="form-control" name="address"  type="text"/>
     </div>
+
     <div class="form-group">
       <label>Phone</label>
       <input *ngIf='product' [(ngModel)]="product.phone" name="description" type="text" class="form-control" id="phone">
