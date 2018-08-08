@@ -21,3 +21,11 @@ h1 {
 img {
   max-width:20px;
 }
+
+.navbar-brand {
+  position: absolute;
+  background: url(https://img.etsystatic.com/il/69593d/1381953842/il_570xN.1381953842_l31k.jpg?version=0);
+  width: 70px;
+  left: 15px;
+  background-size: contain;
+}

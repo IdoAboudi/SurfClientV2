@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Product} from "../../models/Product";
 import {ProductService} from "../../services/products.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
+
+
 
 @Component({
   selector: 'update-component',
@@ -9,6 +13,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 
 export class UpdateComponent  {
+
   product: Product;
   productId: string;
   constructor(private _productService: ProductService, private activatedRoute: ActivatedRoute, private _router: Router){}
@@ -20,6 +25,15 @@ export class UpdateComponent  {
         this.product = product
       });
     })
+  }
+
+  @ViewChild("placesRef") placesRef : GooglePlaceDirective;
+
+  public handleAddressChange(address: Address) {
+    // Do some stuff
+    this.product.address = address.formatted_address;
+    this.product.lat = address.geometry.location.lat();
+    this.product.lng = address.geometry.location.lng();
   }
 
   execUpdate(){

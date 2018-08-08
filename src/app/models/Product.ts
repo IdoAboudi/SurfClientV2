@@ -6,5 +6,7 @@ export class Product {
   description: string;
   price: string ;
   address: string;
+  lat :number;
+  lng: number;
   pictureUrl:string;
 }

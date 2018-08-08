@@ -13,7 +13,7 @@
 
     <div class="form-group">
       <label>Address</label>
-      <input *ngIf="product" ngx-google-places-autocomplete class="form-control" name="address"  type="text" [(ngModel)]="product.address"/>
+      <input *ngIf="product" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"  class="form-control" name="address"  type="text"/>
     </div>
 
     <button type="submit" (click)="execUpdate()" class="btn btn-success">Submit</button>

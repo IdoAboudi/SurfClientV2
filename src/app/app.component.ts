@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   message: string = 'This is the main component'
+
 }
