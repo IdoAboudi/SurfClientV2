@@ -23,11 +23,14 @@ import { ProductsByCountryComponent } from './statistics/products-by-country/pro
 import {ViewsPerPageComponent} from './manage/viewsPerPage/viewsPerPage.component';
 import { WebSocketService } from './web-socket.service';
 import {SocketHandlerService} from './socket-handler.service'
+import {CanActivateViaAuthGuard} from './login/CanActivateViaAuthGuard';
+import {AuthService} from './services/auth.service';
+import {LoginAdminComponent} from './login/loginAdmin.component';
 const appRoutes: Routes = [
   {
     path: '', redirectTo: 'shop', pathMatch: 'full'
   },{
-    path: 'manage', component: ManageComponent,
+    path: 'manage', component: ManageComponent, canActivate:[CanActivateViaAuthGuard],
     children: [
       {
         path: 'list', component: ManageProductListComponent
@@ -36,6 +39,8 @@ const appRoutes: Routes = [
         path: 'edit/:id', component: UpdateComponent
       }
     ]
+  },{
+    path:'login', component: LoginAdminComponent
   },
   {
     path: 'shop', component: ShopComponent
@@ -61,8 +66,8 @@ const appRoutes: Routes = [
                   ManageModule,
                   FormsModule, GooglePlaceModule
   ],
-  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent],
-  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService],
+  declarations: [ AppComponent, ShopComponent, NotFoundComponent, HomepageComponent,CreateNewBoardComponent , ManageComponent, WeatherComponent, CameraComponent, MapsComponent, StatisticsComponent, ProductsByCountryComponent,SearchFilterPipe, ViewsPerPageComponent,LoginAdminComponent],
+  providers: [ProductService, WeatherService,WebSocketService,SocketHandlerService, AuthService, CanActivateViaAuthGuard],
   bootstrap:    [ AppComponent ],
   exports: [GooglePlaceModule]
 })
