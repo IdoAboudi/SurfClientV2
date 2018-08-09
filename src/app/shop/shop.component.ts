@@ -4,7 +4,7 @@ import {Product} from '../models/Product';
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
-import {SocketHandlerService} from '../socket-handler.service';
+import {SocketHandlerService} from '../services/socket-handler.service';
 
 @Component({
   selector: 'inner-component',

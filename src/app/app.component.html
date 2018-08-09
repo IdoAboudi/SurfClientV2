@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -11,8 +13,6 @@
       <li *ngIf="manager"><a [routerLink] = "['/manage/list']">Manage</a></li>
       <li><a [routerLink] = "['/camera']">Camera</a></li>
       <li><a [routerLink] = "['/statistics']">Statistics</a></li>
-      <li><a [routerLink] = "['/anything']">Not Found</a></li>
-      <li><a style="margin-left: 710px" [routerLink] = "['/login']">Admin Access</a></li>
     </ul>
     <!--wave indicator-->
     <div class="align-self-center">
@@ -24,16 +24,25 @@
 
     </div>
     </div>
-    <!--FB like-->
-    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
-         data-layout="button_count" data-action="like" data-size="small"
-         data-show-faces="true" data-share="false">
-    </div>
+
   </div>
 </nav>
 <div>
+
+  <aside class="col-md-1 sidebar-offcanvas pull-right">
+    <div class="list-group">
+      <a [routerLink] = "['/login']" class="list-group-item active">Admin Access</a>
+      <!--FB like-->
+      <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
+           data-layout="button_count" data-action="like" data-size="small"
+           data-show-faces="true" data-share="false">
+      </div>
+    </div>
+  </aside>
 
   <router-outlet>
   </router-outlet>
 
 </div>
+
+<footer class="footer">Created by CS Students - 2018</footer>

@@ -11,12 +11,17 @@ import {Component} from "@angular/core";
 
 export class ManageProductListComponent{
   products: Product[] = [];
+  filteredProducts: Product[] = [];
+  selectedFiled = "name";
+  selectedValue = "";
+  propsList = ['name','price','address'];
 
   constructor(private _productService: ProductService, private _router: Router) {}
 
   ngOnInit(){
     this._productService.getAllProducts().subscribe(products => {
       this.products = products;
+      this.filteredProducts = products;
     });
   }
 
@@ -30,6 +35,15 @@ export class ManageProductListComponent{
         window.alert('Deleted product of id ' + product._id)
         functions.removeIf(this.products,arrProduct => arrProduct._id === product._id);
       }
+    });
+  }
+
+  searchByValue(){
+    console.log(`searching by ${this.selectedFiled} ${this.selectedValue}`)
+    this.filteredProducts = this.products.filter(x => {
+      if(x[this.selectedFiled]){
+        return x[this.selectedFiled].includes(this.selectedValue)
+      } else return false;
     });
   }
 }

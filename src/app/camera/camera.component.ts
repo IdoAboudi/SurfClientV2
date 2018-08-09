@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {SocketHandlerService} from '../socket-handler.service'
-import {WebSocketService} from '../web-socket.service';
+import {SocketHandlerService} from '../services/socket-handler.service'
+import {WebSocketService} from '../services/web-socket.service';
 
 @Component({
   selector: 'inner-component',

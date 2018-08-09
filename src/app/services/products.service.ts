@@ -17,7 +17,7 @@ export class ProductService{
   private allProductsByHandUrl = 'http://localhost:8080/api/byhand';
   // private headers = new Headers();
 
-
+  private readyProducts: Product[] = [];
   private products: Observable<Array<Product>> = new Observable<Array<Product>>();
   private productsByHand: Observable<Array<AggProduct>> = new Observable<Array<AggProduct>>();
 
@@ -29,6 +29,10 @@ export class ProductService{
       this.products =  this.http.get(this.allProductsUrl)
       // ...and calling .json() on the response to return data
         .map((res:Response) => res.json());
+
+      this.products.subscribe((products) => {
+        this.readyProducts = products;
+      })
         //...errors if any
       return this.products;
   }
@@ -58,6 +62,10 @@ export class ProductService{
   insertProduct(product: Product){
     console.log(`inserting ${JSON.stringify(product)}`)
     return this.http.post(this.insertProductUrl,product);
+  }
+
+  getReadyProducts(){
+    return this.readyProducts;
   }
 }
 

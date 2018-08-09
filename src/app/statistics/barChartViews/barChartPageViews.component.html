@@ -1,3 +1,5 @@
 
-<angular-d3-bar [id]="test2" [data]="barChartData" [dataColumns]="dataColumns" [colors]="colors" [yAxisTicks]=10 [width]=400 [height]=200 [transitionDuration]=1000 [transitionDelay]=30
-                [barWidth]="'16px'"></angular-d3-bar>
+<div class="text-center h1">Top Viewed Products</div>
+<angular-d3-donut *ngIf="this.showGraph" [id]="donutGraph" [data]="barChartData"
+                 ></angular-d3-donut>
+<h2 *ngIf="!this.showGraph" class="text-center h2">No Data To Show</h2>

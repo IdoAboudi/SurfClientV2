@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SocketHandlerService} from './socket-handler.service'
+import {SocketHandlerService} from './services/socket-handler.service'
 
 @Component({
   selector: 'my-app',

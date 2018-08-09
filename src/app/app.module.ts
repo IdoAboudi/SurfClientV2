@@ -21,8 +21,8 @@ import { MapsComponent } from './statistics/map/maps/maps.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import { ProductsByCountryComponent } from './statistics/products-by-country/products-by-country.component';
 import {ViewsPerPageComponent} from './manage/viewsPerPage/viewsPerPage.component';
-import { WebSocketService } from './web-socket.service';
-import {SocketHandlerService} from './socket-handler.service'
+import { WebSocketService } from './services/web-socket.service';
+import {SocketHandlerService} from './services/socket-handler.service'
 import {CanActivateViaAuthGuard} from './login/CanActivateViaAuthGuard';
 import {AuthService} from './services/auth.service';
 import {LoginAdminComponent} from './login/loginAdmin.component';

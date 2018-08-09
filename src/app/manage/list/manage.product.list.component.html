@@ -1,30 +1,44 @@
-<div class="raw list-group" *ngFor="let item of products; let i = index">
-  <div class="thumbnail products col-xs-4 col-lg-4">
+<div class="form-group col-md-3 col-lg-3 col-xs-3 myForm">
+  <select class="form-control myFormElement" [(ngModel)]="selectedFiled">
+    <option class="form-control" *ngFor="let prop of propsList" [value]="prop.valueOf()">
+      {{prop}}
+    </option>
+  </select>
+
+  <input class="form-control myFormElement" placeholder="" [(ngModel)]="selectedValue" (input)="searchByValue()" >
+  <button class="btn btn-success pull-left myFormElement" routerLink="/create">New Post</button> <br>
+</div>
+
+<div class="col-xs-9 col-lg-9 col-md-9">
+  <div class="raw list-group" *ngFor="let item of filteredProducts; let i = index">
+    <div class="thumbnail products col-xs-4 col-lg-4">
 
       <div class="list-group-item">
-          <button type="button" class="btn btn-success" (click)="editProduct(item)"> Edit </button>
-          <button type="button" class="btn btn-danger" (click)="deleteProduct(item)"> Delete </button>
+        <button type="button" class="btn btn-success" (click)="editProduct(item)"> Edit </button>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(item)"> Delete </button>
       </div>
-    <h4 class="list-group-item">
-      Name : {{item.name}}
-    </h4>
-    <div class="list-group-item">
-      Description : {{item.description}}
-    </div>
-    <div class="list-group-item">
-      Price : {{item.price}}$
-    </div>
-    <div class="list-group-item">
-      Address : {{item.address}}
-    </div>
-    <div class="list-group-item">
-      Phone : {{item.phone}}
-    </div>
-    <div class="list-group-item">
-      <div>
-        Image : <img class="img-thumbnail" src="http://placehold.it/100x100/000/fff" alt="" />{{item.pictureUrl}}
+      <h4 class="list-group-item">
+        Name : {{item.name}}
+      </h4>
+      <div class="list-group-item">
+        Description : {{item.description}}
       </div>
-    </div>
+      <div class="list-group-item">
+        Price : {{item.price}}$
+      </div>
+      <div class="list-group-item">
+        Address : {{item.address}}
+      </div>
+      <div class="list-group-item">
+        Phone : {{item.phone}}
+      </div>
+      <div class="list-group-item">
+        <div>
+          Image : <img class="img-thumbnail" src="http://placehold.it/100x100/000/fff" alt="" />{{item.pictureUrl}}
+        </div>
+      </div>
 
+    </div>
   </div>
 </div>
+

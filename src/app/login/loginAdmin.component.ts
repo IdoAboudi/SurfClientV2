@@ -14,6 +14,12 @@ export class LoginAdminComponent {
   constructor(private authService: AuthService, private _router: Router) {
   }
 
+  ngOnInit(){
+    if(this.authService.isUserLoggedIn){
+      this._router.navigate(['manage/list']);
+    }
+  }
+
 
   validUser() {
     this.authService.login(this.user, this.pass, (res) => {

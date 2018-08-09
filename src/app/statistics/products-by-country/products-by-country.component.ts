@@ -29,7 +29,6 @@ export class ProductsByCountryComponent implements OnInit {
   ngOnInit() {
     this._productService.getAllProductsByHand().subscribe((products)=> {
       this.products = products;
-      console.log(JSON.stringify(this.products,null,'\t'));
       this.maxPrice = Math.max(...products.map(p => p.avgPrice));
       this.maxHand = Math.max(...products.map(p => p._id));
 
